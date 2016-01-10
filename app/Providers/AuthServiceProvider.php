@@ -52,12 +52,26 @@ class AuthServiceProvider extends ServiceProvider
         });
 
 
+        // Event Authorization
+
+        Gate::define('create-event', function (User $user) {
+            return $user->hasPermission('create-event');
+        });
+
         Gate::define('update-event', function (User $user, Event $event) {
             return $user->hasPermission('update-event') && $user->id === $event->user_id;
         });
 
-        Gate::define('delete-event', function ($user, $event) {
+        Gate::define('delete-event', function (User $user, Event $event) {
             return $user->hasPermission('delete-event') && $user->id === $event->user_id;
+        });
+
+        Gate::define('view-event', function (User $user, Event $event) {
+            return $user->hasPermission('view-event');
+        });
+
+        Gate::define('list-event', function (User $user) {
+            return $user->hasPermission('list-event');
         });
     }
 }

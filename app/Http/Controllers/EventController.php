@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\Entities\Event;
 use App\Repositories\EventRepository;
 use Illuminate\Http\Request;
@@ -16,18 +15,32 @@ class EventController extends Controller
         $this->repository = $repository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->user()->cannot('list-event')) {
+            abort(403);
+        }
+
         return $this->repository->upcoming();
     }
 
-    public function show($id)
+    public function view(Request $request, $id)
     {
+        $event = Event::findOrFail($id);
+
+        if ($request->user()->cannot('view-event', $event)) {
+            abort(403);
+        }
+
         return $this->repository->find($id);
     }
 
     public function create(Request $request)
     {
+        if ($request->user()->cannot('create-event')) {
+            abort(403);
+        }
+
         $this->validate($request, [
             'name'              => 'required',
             'event_date'        => 'required|date',
@@ -35,9 +48,7 @@ class EventController extends Controller
             'location'          => 'required',
         ]);
 
-        $user = Auth::user();
-
-        return $this->repository->create($user, $request->all());
+        return $this->repository->create($request->user(), $request->all());
     }
 
     public function update(Request $request, $id)

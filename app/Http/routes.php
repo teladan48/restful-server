@@ -19,7 +19,7 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
 
     // Event
     $app->get('events', 'EventController@index');
-    $app->get('events/{id}', 'EventController@show');
+    $app->get('events/{id}', 'EventController@view');
     $app->post('events', 'EventController@create');
     $app->put('events/{id}', 'EventController@update');
     $app->delete('events/{id}', 'EventController@delete');

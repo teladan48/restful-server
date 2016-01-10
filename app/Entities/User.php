@@ -36,4 +36,15 @@ class User extends Model implements
     {
         return $this->hasMany(Event::class);
     }
+
+    public function hasPermission($name)
+    {
+        // @TODO Pindahkan ke Database
+
+        $permissions = [
+            'create-event', 'update-event', 'delete-event', 'show-event',
+        ];
+
+        return in_array($name, $permissions);
+    }
 }

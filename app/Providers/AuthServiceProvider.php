@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Entities\Event;
 use Exception;
 use App\Entities\User;
 use Illuminate\Http\Request;
@@ -51,12 +52,12 @@ class AuthServiceProvider extends ServiceProvider
         });
 
 
-        Gate::define('update-event', function ($user, $event) {
-            return $user->id === $event->user_id;
+        Gate::define('update-event', function (User $user, Event $event) {
+            return $user->hasPermission('update-event') && $user->id === $event->user_id;
         });
 
         Gate::define('delete-event', function ($user, $event) {
-            return $user->id === $event->user_id;
+            return $user->hasPermission('delete-event') && $user->id === $event->user_id;
         });
     }
 }

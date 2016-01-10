@@ -29,7 +29,7 @@ class User extends Model implements
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password', 'api_token'
     ];
 
     public function events()

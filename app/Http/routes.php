@@ -15,9 +15,13 @@ $app->get('/', function () use ($app) {
     return ['app_name' => 'TLD48', 'version' => '1.0'];
 });
 
-// Event
-$app->get('events', 'App\Http\Controllers\EventController@index');
-$app->get('events/{id}', 'App\Http\Controllers\EventController@show');
-$app->post('events', 'App\Http\Controllers\EventController@store');
-$app->put('events/{id}', 'App\Http\Controllers\EventController@update');
-$app->delete('events/{id}', 'App\Http\Controllers\EventController@delete');
+$app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], function () use ($app) {
+
+    // Event
+    $app->get('events', 'EventController@index');
+    $app->get('events/{id}', 'EventController@show');
+    $app->post('events', 'EventController@store');
+    $app->put('events/{id}', 'EventController@update');
+    $app->delete('events/{id}', 'EventController@delete');
+
+});

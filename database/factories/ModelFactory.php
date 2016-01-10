@@ -16,6 +16,8 @@ $factory->define(App\Entities\User::class, function ($faker) {
         'name' => $faker->name,
         'email' => $email = strtolower($faker->email),
         'api_token' => password_hash($email, PASSWORD_BCRYPT),
+        'location_lat' => $faker->latitude,
+        'location_long' => $faker->longitude,
     ];
 });
 

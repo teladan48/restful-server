@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'email'     => 'test@teladan07.org',
         ]);
 
-        factory(App\Entities\User::class, 20)->create()->each(function ($user) {
+        factory(App\Entities\User::class, 50)->create()->each(function ($user) {
             $user->events()->save(factory(App\Entities\Event::class)->make());
             $user->events()->save(factory(App\Entities\Event::class)->make());
         });

@@ -49,5 +49,14 @@ class AuthServiceProvider extends ServiceProvider
 
             return $user;
         });
+
+
+        Gate::define('update-event', function ($user, $event) {
+            return $user->id === $event->user_id;
+        });
+
+        Gate::define('delete-event', function ($user, $event) {
+            return $user->id === $event->user_id;
+        });
     }
 }

@@ -42,6 +42,12 @@ class EventController extends Controller
 
     public function update(Request $request, $id)
     {
+        $event = Event::findOrFail($id);
+
+        if ($request->user()->cannot('update-event', $event)) {
+            abort(403);
+        }
+
         $this->validate($request, [
             'name'              => 'required',
             'event_date'        => 'required|date',
@@ -49,14 +55,16 @@ class EventController extends Controller
             'location'          => 'required',
         ]);
 
-        $event = Event::findOrFail($id);
-
         return $this->repository->update($event, $request->all());
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
         $event = Event::findOrFail($id);
+
+        if ($request->user()->cannot('delete-event', $event)) {
+            abort(403);
+        }
 
         return $this->repository->delete($event);
     }

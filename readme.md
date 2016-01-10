@@ -1,21 +1,21 @@
-## Lumen PHP Framework
+## Requirement
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+1. PHP v5.6
+2. MySQL > v5.5
+3. Composer https://getcomposer.org/
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Clone, Install, Config
 
-## Official Documentation
+1. Jalankan `git clone`.
+2. Buat MySQL database.
+3. Buat file `.env` dengan meng-copy isi file `.env.example`.
+4. Sesuaikan konfigurasi yang belum terisi di file `.env`.
+5. Isikan `APP_KEY` dengan 32 karakter random.
+6. Jalankan `composer install`
+7. Jalankan `php artisan migrate`.
+8. Jalankan `php artisan db:seed`.
+9. Jalankan `php -S 0.0.0.0:8000 -t public`
+10. Seharusnya sudah bisa akses `http://localhost:8000`
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## Development
+1. Pelajari dokumentasi framework Lumen https://lumen.laravel.com/docs/ dan Laravel https://laravel.com/docs/5.2/

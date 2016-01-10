@@ -20,7 +20,7 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
     // Event
     $app->get('events', 'EventController@index');
     $app->get('events/{id}', 'EventController@show');
-    $app->post('events', 'EventController@store');
+    $app->post('events', 'EventController@create');
     $app->put('events/{id}', 'EventController@update');
     $app->delete('events/{id}', 'EventController@delete');
 

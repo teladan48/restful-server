@@ -42,7 +42,7 @@ class User extends Model implements
         // @TODO Pindahkan ke Database
 
         $permissions = [
-            'create-event', 'update-event', 'delete-event', 'show-event',
+            'create-event', 'update-event', 'delete-event', 'view-event',
         ];
 
         return in_array($name, $permissions);

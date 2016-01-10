@@ -26,7 +26,7 @@ class EventController extends Controller
         return $this->repository->find($id);
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $this->validate($request, [
             'name'              => 'required',

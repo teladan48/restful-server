@@ -80,7 +80,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasPermission('list-user');
         });
 
-        Gate::define('view-user', function (User $user) {
+        Gate::define('view-user', function (User $user, User $user_check) {
             return $user->hasPermission('view-user');
         });
 

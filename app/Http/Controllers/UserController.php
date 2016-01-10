@@ -29,7 +29,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        if ($request->user()->cannot('view-user')) {
+        if ($request->user()->cannot('view-user', $user)) {
             abort(403);
         }
 

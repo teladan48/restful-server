@@ -1,8 +1,8 @@
 ## Requirement
 
-1. PHP v5.6
+1. PHP v5.6 (https://john-dugan.com/add-php-windows-path-variable/)
 2. MySQL > v5.5
-3. Composer https://getcomposer.org/
+3. Composer https://getcomposer.org/ (install sebagai global)
 
 ## Clone, Install, Config
 

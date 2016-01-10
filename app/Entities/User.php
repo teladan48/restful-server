@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Entities;
 
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
@@ -31,4 +31,9 @@ class User extends Model implements
     protected $hidden = [
         'password',
     ];
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }

@@ -12,5 +12,12 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+    return ['app_name' => 'TLD48', 'version' => '1.0'];
 });
+
+// Event
+$app->get('events', 'App\Http\Controllers\EventController@index');
+$app->get('events/{id}', 'App\Http\Controllers\EventController@show');
+$app->post('events', 'App\Http\Controllers\EventController@store');
+$app->put('events/{id}', 'App\Http\Controllers\EventController@update');
+$app->delete('events/{id}', 'App\Http\Controllers\EventController@delete');

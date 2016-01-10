@@ -11,6 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UserTableSeeder');
+        DB::table('events')->delete();
+        DB::table('users')->delete();
+
+        factory(App\Entities\User::class, 20)->create()->each(function ($user) {
+            $user->events()->save(factory(App\Entities\Event::class)->make());
+            $user->events()->save(factory(App\Entities\Event::class)->make());
+        });
     }
 }

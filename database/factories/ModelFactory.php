@@ -11,9 +11,20 @@
 |
 */
 
-$factory->define(App\User::class, function ($faker) {
+$factory->define(App\Entities\User::class, function ($faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->email,
+        'email' => $email = strtolower($faker->email),
+        'api_token' => password_hash($email, PASSWORD_BCRYPT),
+    ];
+});
+
+
+$factory->define(App\Entities\Event::class, function ($faker) {
+    return [
+        'name' => $faker->sentence(4),
+        'event_date' => $faker->dateTimeBetween('-3 months', '+6 months'),
+        'event_description' => $faker->text,
+        'location' => $faker->address,
     ];
 });

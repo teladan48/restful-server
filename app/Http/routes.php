@@ -24,4 +24,12 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
     $app->put('events/{id}', 'EventController@update');
     $app->delete('events/{id}', 'EventController@delete');
 
+    // Users
+    $app->get('users', 'UserController@index');
+
+    $app->get('users/locations', 'UserController@listLocation');
+    $app->put('users/{id}/location', 'UserController@updateLocation');
+
+    $app->get('users/{id}', 'UserController@view');
+
 });

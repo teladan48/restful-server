@@ -43,6 +43,7 @@ class User extends Model implements
 
         $permissions = [
             'list-event', 'create-event', 'update-event', 'delete-event', 'view-event',
+            'list-user', 'view-user', 'update-user-location', 'list-all-location',
         ];
 
         return in_array($name, $permissions);

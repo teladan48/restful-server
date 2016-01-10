@@ -19,3 +19,4 @@
 
 ## Development
 1. Pelajari dokumentasi framework Lumen https://lumen.laravel.com/docs/ dan Laravel https://laravel.com/docs/
+2. Lanjut baca https://github.com/teladan48/restful-server/wiki

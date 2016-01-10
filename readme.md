@@ -15,7 +15,7 @@
 7. Jalankan `php artisan migrate`.
 8. Jalankan `php artisan db:seed`.
 9. Jalankan `php -S 0.0.0.0:8000 -t public`
-10. Seharusnya sudah bisa akses `http://localhost:8000`
+10. Seharusnya sudah bisa akses `http://localhost:8000`, akan keluar response JSON `{"app_name":"TLD48","version":"1.0"}`
 
 ## Development
-1. Pelajari dokumentasi framework Lumen https://lumen.laravel.com/docs/ dan Laravel https://laravel.com/docs/5.2/
+1. Pelajari dokumentasi framework Lumen https://lumen.laravel.com/docs/ dan Laravel https://laravel.com/docs/

@@ -17,7 +17,8 @@ class CreateTableUsers extends Migration
             $table->string('api_token')->index();
             $table->string('name');
             $table->string('email')->index();
-            $table->string('location')->nullable();
+            $table->string('location_lat')->nullable();
+            $table->string('location_long')->nullable();
             $table->timestamps();
         });
     }

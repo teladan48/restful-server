@@ -3,10 +3,9 @@ php:
   - '5.6'
 
 before_install:
+  - openssl aes-256-cbc -K $encrypted_9431a6898e0f_key -iv $encrypted_9431a6898e0f_iv -in id_rsa.enc -out ~\/.ssh/id_rsa -d
   - composer self-update
   - composer config --global github-oauth.github.com $GITHUB_TOKEN
-  - mkdir ~/.ssh
-  - echo "$SSH_PRIVATE" > ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
 
 install:

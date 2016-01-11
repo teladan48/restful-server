@@ -13,8 +13,8 @@ class ExampleTest extends TestCase
     {
         $this->get('/');
 
-        $this->assertEquals(
-            $this->response->getContent(), $this->app->version()
-        );
+        $this->seeJson([
+            'app_name' => 'TLD48',
+        ]);
     }
 }

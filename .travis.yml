@@ -9,4 +9,6 @@ before_install:
 install:
   - composer install --prefer-dist --no-interaction --no-progress
 
-script: phpunit
+script:
+  - phpunit
+  - ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@$SSH_HOST "cd $DEPLOY_PATH && git pull && php artisan migrate:refresh --seed"

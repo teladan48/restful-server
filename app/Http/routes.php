@@ -26,10 +26,10 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
 
     // Users
     $app->get('users', 'UserController@index');
-
-    $app->get('users/locations', 'UserController@listLocation');
-    $app->put('users/{id}/location', 'UserController@updateLocation');
-
     $app->get('users/{id}', 'UserController@view');
+
+    // Users Location
+    $app->get('user-locations', 'UserLocationController@index');
+    $app->put('user-locations/{user_id}', 'UserLocationController@update');
 
 });

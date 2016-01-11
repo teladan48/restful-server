@@ -16,11 +16,16 @@ $factory->define(App\Entities\User::class, function ($faker) {
         'name' => $faker->name,
         'email' => $email = strtolower($faker->email),
         'api_token' => password_hash($email, PASSWORD_BCRYPT),
+    ];
+});
+
+
+$factory->define(App\Entities\UserLocation::class, function ($faker) {
+    return [
         'location_lat' => $faker->latitude,
         'location_long' => $faker->longitude,
     ];
 });
-
 
 $factory->define(App\Entities\Event::class, function ($faker) {
     return [

@@ -21,13 +21,4 @@ class UserRepository
     {
         return User::findOrFail($id);
     }
-
-    public function updateLocation(User $user, array $data)
-    {
-        $user->location_lat  = $data['location_lat'];
-        $user->location_long = $data['location_long'];
-        $user->save();
-
-        return $user;
-    }
 }

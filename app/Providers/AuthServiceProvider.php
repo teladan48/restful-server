@@ -84,8 +84,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasPermission('view-user');
         });
 
-        Gate::define('list-all-location', function (User $user) {
-            return $user->hasPermission('list-all-location');
+
+        // User Location Authorization
+        Gate::define('list-user-location', function (User $user) {
+            return $user->hasPermission('list-user-location');
         });
 
         Gate::define('update-user-location', function (User $user, User $user_check) {

@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('events')->delete();
+        DB::table('user_locations')->delete();
         DB::table('users')->delete();
 
         User::create([
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         factory(App\Entities\User::class, 50)->create()->each(function ($user) {
+            $user->location()->save(factory(App\Entities\UserLocation::class)->make());
             $user->events()->save(factory(App\Entities\Event::class)->make());
             $user->events()->save(factory(App\Entities\Event::class)->make());
         });

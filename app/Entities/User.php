@@ -20,7 +20,7 @@ class User extends Model implements
      * @var array
      */
     protected $fillable = [
-        'api_token', 'name', 'email', 'location_lat', 'location_long'
+        'api_token', 'name', 'email',
     ];
 
     /**
@@ -37,13 +37,19 @@ class User extends Model implements
         return $this->hasMany(Event::class);
     }
 
+    public function location()
+    {
+        return $this->hasOne(UserLocation::class);
+    }
+
     public function hasPermission($name)
     {
         // @TODO Pindahkan ke Database
 
         $permissions = [
             'list-event', 'create-event', 'update-event', 'delete-event', 'view-event',
-            'list-user', 'view-user', 'update-user-location', 'list-all-location',
+            'list-user', 'view-user',
+            'update-user-location', 'list-user-location',
         ];
 
         return in_array($name, $permissions);

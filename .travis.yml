@@ -5,6 +5,9 @@ php:
 before_install:
   - composer self-update
   - composer config --global github-oauth.github.com $GITHUB_TOKEN
+  - mkdir ~/.ssh
+  - echo "$SSH_PRIVATE" > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
 
 install:
   - composer install --prefer-dist --no-interaction --no-progress
